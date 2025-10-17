@@ -6,3 +6,12 @@ I think this should be done in the following way:
     * So after we parse the input we identify what operation must be done and then apply it to the two integers and store this value
     * with the new stored value print it out and retain that racket value
     * have it recursively take in, input to keep the calculator going unless a "quit" keyword is used
+
+October 17th
+I started working on the proper implementation today and added the following:
+    * I added the two usage types which were mentioned which was a batch mode and an interactive mode 
+    * I added a tokenizer which splits input strings into tokens and then finds the operator and ignores parantheses
+    Furthermore, the tokenizer treats negatives differently, it treats for example "-3" as the following "-" is a unary operator and the three is a seperate integer
+    * I added the prefix evaluator which takes in eval tokens and then prarses an expression from the front ofa token list and returns two values, the numeric result and the remaining tokens, if there is an error it returns an exception 
+    Its not done yet, but whenever I get the chance I should be able to finish it, it seems like I am almost done overall very productive day 8/10
+
