@@ -15,3 +15,6 @@ I started working on the proper implementation today and added the following:
     * I added the prefix evaluator which takes in eval tokens and then prarses an expression from the front ofa token list and returns two values, the numeric result and the remaining tokens, if there is an error it returns an exception 
     Its not done yet, but whenever I get the chance I should be able to finish it, it seems like I am almost done overall very productive day 8/10
 
+October 19th
+I have been completely slammed with work for other classes, along with the homework for this class so I have not had much time for this class but I do think I know whats left to do
+I think I need to have it take in input 
