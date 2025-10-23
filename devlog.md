@@ -17,4 +17,7 @@ I started working on the proper implementation today and added the following:
 
 October 19th
 I have been completely slammed with work for other classes, along with the homework for this class so I have not had much time for this class but I do think I know whats left to do
-I think I need to have it take in input 
+I think I need to have it take in input and then run it through so I will do that next!
+
+October 23rd
+So I lucked out, I have been coding in racket this whole time and luckily that was right beccause some people were coding in haskell, hopefully I can finish my code and test it tomorrow so I can be done with it.
