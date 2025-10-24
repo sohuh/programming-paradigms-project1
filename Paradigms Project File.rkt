@@ -130,3 +130,60 @@
              [else (error 'parse "Unknown binary operator")])))]
       [else
        (error 'parse (format "Unknown token: ~a" tok))])))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Main REPL / batch loop
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+(define (print-prompt)
+  (when prompt?
+    (display "> ")
+    (flush-output)))
+
+(define (print-result-and-add history result)
+  ;; ID is the order added (1-based). History before adding contains previous results.
+  (let ([id (+ 1 (length history))])
+    ;; convert to float via real->double-flonum then display
+    (displayln (format "~a: ~a" id (real->double-flonum result)))
+    (cons result history))) ;; add to front (most-recent-first)
+
+(define (handle-input-line line history)
+  (define trimmed (string-trim line))
+  (cond
+    [(string=? trimmed "") history] ; ignore blank lines
+    [(string-ci=? trimmed "quit") (begin (exit))] ; quit immediately
+    [else
+     (let ([toks (tokenize trimmed)])
+       (with-handlers ([exn:fail?
+                        (lambda (e)
+                          ;; When an error occurs, print a message prefixed by "Error:"
+                          ;; In batch mode we must only print results/errors.
+                          (displayln (format "Error: Invalid Expression"))
+                          history)])
+         (let-values ([(val rem) (eval-tokens toks history)])
+           (when (not (null? rem))
+             (error 'parse "Extra tokens after valid expression"))
+           (print-result-and-add history val))))]))
+
+(define (main-loop history)
+  (print-prompt)
+  (let ([line (with-handlers ([exn:fail:read?
+                                (lambda (e) ; handle EOF / read error by exiting quietly
+                                  (exit))])
+                (read-line))])
+    (cond
+      [(eof-object? line) (exit)]
+      [else
+       (define new-history (handle-input-line line history))
+       (main-loop new-history)])))
+
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; Start
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+
+;; initial empty history
+(main-loop '())
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+;; test
+;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;
+

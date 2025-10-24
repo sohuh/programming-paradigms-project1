@@ -21,3 +21,6 @@ I think I need to have it take in input and then run it through so I will do tha
 
 October 23rd
 So I lucked out, I have been coding in racket this whole time and luckily that was right beccause some people were coding in haskell, hopefully I can finish my code and test it tomorrow so I can be done with it.
+
+October 24th (Morning)
+Finished writing the calculator program itself and ran it normally and it was working just fine on evertyhing, need to go out for a bit so will test with batch and write the readme for the final touches later today.
