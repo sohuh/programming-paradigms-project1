@@ -44,3 +44,4 @@ NOTES FOR THE TA:
 All numbers are returned as floats
 
 I added extra comments within the code for more readability and more precise error handling / tracing parts so if you have any questions regarding it let me know!
+Also this was all coded in VS code as my natural IDE, so it should run best within said environment.
