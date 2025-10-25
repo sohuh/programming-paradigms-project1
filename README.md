@@ -18,13 +18,17 @@ Operators include:
 +, * , /
 integer1 and integer2 can be any number.
 You may notice that there is no subtraction, this is because to subtract you can just add a negative number which can be done like this:
+
 \+ 20 -10 = 10 which is the same as 20 - 10 = 10
 
 Furthermore, you can reference previous values this is done by doing $(number of value) this number is established after the calculation for example
+
 \+ 2 5 
 1: 7.0
+
 \+ $1 6
 2: 13.0
+
 Meaning you would refer to the number prior to the result for future references.
 
 Exitting the Code:
@@ -38,4 +42,5 @@ it will return "Error: Invalid Expression"
 
 NOTES FOR THE TA:
 All numbers are returned as floats
+
 I added extra comments within the code for more readability and more precise error handling / tracing parts so if you have any questions regarding it let me know!
