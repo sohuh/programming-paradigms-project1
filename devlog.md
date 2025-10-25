@@ -24,3 +24,7 @@ So I lucked out, I have been coding in racket this whole time and luckily that w
 
 October 24th (Morning)
 Finished writing the calculator program itself and ran it normally and it was working just fine on evertyhing, need to go out for a bit so will test with batch and write the readme for the final touches later today.
+October 24th (Night)
+Tested the code with the batch command using the test_cases.txt file I made
+Added readme file with instructions on the ins and outs of the code and how to run everything.
+Finished the project ! woohoo!
