@@ -31,7 +31,7 @@ Furthermore, you can reference previous values this is done by doing $(number of
 
 Meaning you would refer to the number prior to the result for future references.
 
-Exitting the Code:
+Exiting the Code:
 To exit simply type " quit " .
 
 Running the Code with a batch file:
